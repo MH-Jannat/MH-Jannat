@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Mifta Hatul Jannat, Pharmacy student at Manarat International University.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Mifta Hatul Jannat | Pharmacy Student</title>
+
+  <style>
+    :root {
+      --green: #087f5b;
+      --dark-green: #064b3b;
+      --black: #101413;
+      --light-green: #d9f3e8;
+      --white: #ffffff;
+      --gray: #aebbb5;
+      --background: #f1f5f2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--black);
+      line-height: 1.7;
+    }
+
+    header {
+      background: var(--black);
+      color: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+      border-bottom: 3px solid var(--green);
+    }
+
+    header h2 {
+      color: #54d6a2;
+      font-size: 1.3rem;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: .94rem;
+    }
+
+    nav a:hover {
+      color: #54d6a2;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #101413, #064b3b);
+      color: white;
+      padding: 70px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 45px;
+      flex-wrap: wrap;
+    }
+
+    .profile-photo {
+      width: 215px;
+      height: 215px;
+      border: 5px solid #54d6a2;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 45%;
+      box-shadow: 0 8px 25px #00000055;
+    }
+
+    .hero-copy {
+      max-width: 580px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.2;
+      margin-bottom: 15px;
+      color: #54d6a2;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      margin-bottom: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      padding: 11px 23px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .button:hover {
+      background: #0ba875;
+    }
+
+    main {
+      width: min(100% - 36px, 960px);
+      margin: auto;
+    }
+
+    section {
+      padding: 45px 0 8px;
+      scroll-margin-top: 20px;
+    }
+
+    section h2 {
+      color: var(--dark-green);
+      font-size: 1.8rem;
+      margin-bottom: 17px;
+      border-left: 5px solid var(--green);
+      padding-left: 12px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 13px;
+      padding: 23px;
+      margin-bottom: 17px;
+      border: 1px solid #dce8e0;
+      box-shadow: 0 4px 15px #102b1c0d;
+    }
+
+    .card h3 {
+      color: var(--green);
+      margin-bottom: 7px;
+    }
+
+    .muted {
+      color: #68766e;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: var(--light-green);
+      color: var(--dark-green);
+      border: 1px solid #b8e4ce;
+      border-radius: 22px;
+      padding: 7px 15px;
+      font-size: .95rem;
+    }
+
+    .contact a {
+      color: var(--green);
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 23px;
+      text-align: center;
+      background: var(--black);
+      color: white;
+      border-top: 3px solid var(--green);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 620px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav {
+        justify-content: center;
+        gap: 10px 14px;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 48px 22px;
+        gap: 24px;
+      }
+
+      .profile-photo {
+        width: 175px;
+        height: 175px;
+      }
+
+      main {
+        width: min(100% - 28px, 960px);
+      }
+
+      section {
+        padding-top: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>Mifta Hatul Jannat</h2>
+
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#interests">Interests</a>
+      <a href="#workshops">Achievements</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+
+    <img
+      src="profile.jpg"
+      alt="Portrait of Mifta Hatul Jannat"
+      class="profile-photo"
+    >
+
+    <div class="hero-copy">
+      <h1>Hello, I'm Mifta Hatul Jannat</h1>
+
+      <p>
+        Second-year Bachelor of Pharmacy (B.Pharm) student<br>
+        Manarat International University
+      </p>
+
+      <a class="button" href="#about">
+        Explore My Portfolio
+      </a>
+    </div>
+
+  </div>
+
+  <main>
+
+    <section id="about">
+      <h2>About Me</h2>
+
+      <div class="card">
+        <p>
+          I am a second-year Bachelor of Pharmacy student at
+          Manarat International University. I am building my
+          academic foundation in pharmacy and expanding my
+          knowledge of the pharmaceutical and healthcare fields.
+          I enjoy learning about science, people, nature and
+          the world around me.
+        </p>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+
+      <div class="card">
+        <h3>Bachelor of Pharmacy (B.Pharm)</h3>
+        <p>Manarat International University</p>
+        <p class="muted">Currently in 2nd Year</p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+
+      <div class="card">
+        <div class="tags">
+          <span class="tag">Communication</span>
+          <span class="tag">Teamwork</span>
+          <span class="tag">Computer Skills</span>
+          <span class="tag">Basic Laboratory Techniques</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests">
+      <h2>Hobbies &amp; Interests</h2>
+
+      <div class="card">
+        <div class="tags">
+          <span class="tag">Reading</span>
+          <span class="tag">Case-file documentaries</span>
+          <span class="tag">Nature documentaries</span>
+          <span class="tag">Wildlife documentaries</span>
+          <span class="tag">Podcasts</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="workshops">
+      <h2>Academic Achievements &amp; Workshops</h2>
+
+      <div class="card">
+        <h3>Secondary School Certificate (SSC)</h3>
+        <p>GPA: 5.00</p>
+      </div>
+
+      <div class="card">
+        <h3>Higher Secondary Certificate (HSC)</h3>
+        <p>GPA: 4.80</p>
+      </div>
+
+      <div class="card">
+        <h3>Career Guidance Workshop</h3>
+        <p>Workshop attended</p>
+      </div>
+
+      <div class="card">
+        <h3>Artificial Intelligence (AI) Workshop</h3>
+        <p>Workshop attended</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
+
+      <div class="card">
+        <p>
+          Email:
+          <a href="mailto:callmiftah@gmail.com">
+            callmiftah@gmail.com
+          </a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      &copy; 2026 Mifta Hatul Jannat | Pharmacy Student Portfolio
+    </p>
+  </footer>
+
+</body>
+</html>
