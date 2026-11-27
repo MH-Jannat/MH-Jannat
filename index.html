@@ -1,337 +1,500 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Mifta Hatul Jannat, a Bachelor of Pharmacy student at Manarat International University.">
-  <title>Mifta Hatul Jannat | Aspiring Pharmacist</title>
-  <style>
-    :root {
-      --ink: #173b3a;
-      --muted: #607775;
-      --green: #1e6860;
-      --mint: #eaf4ef;
-      --cream: #fbfaf6;
-      --white: #ffffff;
-      --line: #dce8e2;
-      --gold: #c99a4a;
-      --shadow: 0 18px 45px rgba(23, 59, 58, .08);
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--cream);
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      line-height: 1.65;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { width: min(1100px, 90%); margin: 0 auto; }
-    header {
-      position: sticky; top: 0; z-index: 10;
-      background: rgba(251, 250, 246, .92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(220, 232, 226, .8);
-    }
-    nav {
-      min-height: 72px; display: flex; align-items: center;
-      justify-content: space-between; gap: 24px;
-    }
-    .brand { font-weight: 800; letter-spacing: -.04em; font-size: 1.1rem; }
-    .brand span { color: var(--green); }
-    .nav-links { display: flex; gap: 24px; flex-wrap: wrap; font-size: .9rem; color: var(--muted); }
-    .nav-links a:hover { color: var(--green); }
-    .hero { padding: 94px 0 82px; overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 55px; align-items: center; }
-    .eyebrow {
-      display: inline-flex; align-items: center; gap: 9px;
-      color: var(--green); background: var(--mint); border-radius: 30px;
-      padding: 7px 14px; font-size: .8rem; font-weight: 700; letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-    .eyebrow:before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
-    h1 { font-size: clamp(2.7rem, 6vw, 5rem); line-height: 1.04; letter-spacing: -.065em; margin: 22px 0 18px; }
-    h1 span { color: var(--green); }
-    .hero-copy { max-width: 620px; color: var(--muted); font-size: 1.08rem; }
-    .hero-actions { display: flex; gap: 13px; flex-wrap: wrap; margin-top: 30px; }
-    .btn {
-      display: inline-block; padding: 12px 20px; border-radius: 8px;
-      font-weight: 700; font-size: .92rem; transition: .2s ease;
-    }
-    .btn-primary { background: var(--green); color: white; }
-    .btn-primary:hover { background: var(--ink); transform: translateY(-2px); }
-    .btn-secondary { border: 1px solid var(--line); background: white; }
-    .btn-secondary:hover { border-color: var(--green); transform: translateY(-2px); }
-    .hero-art {
-      min-height: 330px; border-radius: 28px; background: var(--mint);
-      position: relative; display: grid; place-items: center; box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .hero-art:before, .hero-art:after {
-      content: ""; position: absolute; border: 1px solid rgba(30,104,96,.18); border-radius: 50%;
-    }
-    .hero-art:before { width: 260px; height: 260px; }
-    .hero-art:after { width: 340px; height: 340px; }
-    .molecule { position: relative; z-index: 1; width: 190px; height: 190px; }
-    .art-caption {
-      position: absolute; bottom: 22px; left: 24px; right: 24px;
-      text-align: center; color: var(--green); font-weight: 700; font-size: .9rem;
-    }
-    section { padding: 76px 0; }
-    .section-heading { max-width: 650px; margin-bottom: 32px; }
-    .kicker { color: var(--gold); font-weight: 800; text-transform: uppercase; letter-spacing: .12em; font-size: .75rem; }
-    h2 { font-size: clamp(2rem, 4vw, 2.8rem); letter-spacing: -.045em; line-height: 1.15; margin: 9px 0 12px; }
-    .section-intro { color: var(--muted); margin: 0; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-    .panel, .skill-card, .interest-card, .timeline-card {
-      background: var(--white); border: 1px solid var(--line); border-radius: 15px;
-      padding: 25px; box-shadow: 0 8px 25px rgba(23,59,58,.035);
-    }
-    .panel p { color: var(--muted); margin-bottom: 0; }
-    .highlight { background: var(--ink); color: white; }
-    .highlight p { color: #d3e2dc; }
-    .highlight .kicker { color: #e5bd78; }
-    .education { background: #f1f6f2; }
-    .timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
-    .timeline-card { position: relative; }
-    .year { color: var(--green); font-size: .83rem; font-weight: 800; }
-    .timeline-card h3 { margin: 9px 0 4px; font-size: 1.1rem; }
-    .timeline-card p { margin: 0; color: var(--muted); font-size: .92rem; }
-    .status { display: inline-block; margin-top: 14px; background: var(--mint); color: var(--green); padding: 5px 10px; border-radius: 20px; font-size: .75rem; font-weight: 700; }
-    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
-    .skill-card { padding: 20px; font-weight: 700; }
-    .skill-icon {
-      width: 38px; height: 38px; display: grid; place-items: center;
-      border-radius: 10px; color: var(--green); background: var(--mint);
-      margin-bottom: 13px; font-size: 1.15rem;
-    }
-    .interests { background: #f1f6f2; }
-    .interest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .interest-card h3 { margin: 10px 0 5px; font-size: 1.02rem; }
-    .interest-card p { color: var(--muted); font-size: .91rem; margin: 0; }
-    .interest-icon { font-size: 1.4rem; }
-    .contact-wrap {
-      background: var(--ink); color: white; border-radius: 22px; padding: 42px;
-      display: flex; align-items: center; justify-content: space-between; gap: 30px;
-    }
-    .contact-wrap p { color: #d3e2dc; margin-bottom: 0; }
-    .contact-wrap .kicker { color: #e5bd78; }
-    .contact-email { display: inline-block; margin-top: 16px; font-weight: 700; color: #fff; border-bottom: 1px solid #9bbdb1; }
-    footer { padding: 25px 0; color: var(--muted); font-size: .85rem; }
-    footer .container { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    @media (max-width: 780px) {
-      .hero { padding: 65px 0; }
-      .hero-grid, .about-grid { grid-template-columns: 1fr; }
-      .hero-art { min-height: 260px; }
-      .timeline { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
-      .interest-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-wrap { padding: 30px; flex-direction: column; align-items: flex-start; }
-      .nav-links { gap: 12px; font-size: .82rem; }
-    }
-    @media (max-width: 460px) {
-      nav { align-items: flex-start; flex-direction: column; padding: 15px 0; gap: 8px; }
-      .nav-links { gap: 14px; }
-      .interest-grid, .skills-grid { grid-template-columns: 1fr; }
-      section { padding: 58px 0; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Mifta Hatul Jannat | Aspiring Pharmacist and B.Pharm Student">
+<title>Mifta Hatul Jannat | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --sage: #9caf88;
+  --dark-sage: #536b4e;
+  --black: #171b18;
+  --ivory: #f7f7f0;
+  --white: #ffffff;
+  --muted: #73796f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--ivory);
+  color: var(--black);
+  line-height: 1.7;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 9%;
+  background: var(--ivory);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #e4e8dc;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 28px;
+}
+
+nav ul a {
+  font-size: 13px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav ul a:hover {
+  color: var(--dark-sage);
+}
+
+.hero {
+  min-height: 85vh;
+  padding: 100px 9%;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(120deg, #e7eddf, #f7f7f0);
+}
+
+.hero-content {
+  max-width: 750px;
+}
+
+.tag {
+  color: var(--dark-sage);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(43px, 7vw, 78px);
+  line-height: 1.15;
+  margin: 22px 0;
+}
+
+h1 span {
+  color: var(--dark-sage);
+}
+
+.hero p {
+  color: #5f665d;
+  max-width: 600px;
+  font-size: 16px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 13px 28px;
+  background: var(--black);
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--dark-sage);
+  transform: translateY(-3px);
+}
+
+section {
+  padding: 85px 9%;
+}
+
+.section-label {
+  color: var(--dark-sage);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 39px;
+  margin: 12px 0 35px;
+}
+
+.about {
+  background: var(--white);
+}
+
+.about-text {
+  max-width: 800px;
+  color: #62685f;
+  font-size: 16px;
+}
+
+.education {
+  background: var(--ivory);
+}
+
+.timeline {
+  border-left: 2px solid var(--sage);
+  padding-left: 30px;
+  margin-left: 8px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -37px;
+  top: 8px;
+  height: 12px;
+  width: 12px;
+  background: var(--dark-sage);
+  border-radius: 50%;
+}
+
+.timeline-item h3 {
+  font-size: 18px;
+}
+
+.timeline-item p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.skills {
+  background: var(--black);
+  color: var(--white);
+}
+
+.skills .section-title {
+  color: var(--white);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  background: var(--white);
+  color: var(--black);
+  border-radius: 7px;
+  border-bottom: 4px solid var(--sage);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.academic {
+  background: #e9eee3;
+}
+
+.activities {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.activity {
+  background: var(--white);
+  padding: 20px;
+  border-radius: 5px;
+  border-left: 3px solid var(--dark-sage);
+}
+
+.activity p {
+  font-size: 14px;
+}
+
+.interests {
+  background: var(--white);
+}
+
+.contact {
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+}
+
+.contact .section-title {
+  color: var(--white);
+}
+
+.contact p {
+  color: #c1c9bd;
+}
+
+.email {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 13px 25px;
+  border: 1px solid var(--sage);
+  border-radius: 4px;
+  color: var(--sage);
+}
+
+.email:hover {
+  background: var(--sage);
+  color: var(--black);
+}
+
+footer {
+  padding: 20px;
+  background: #101310;
+  color: #aeb5a9;
+  text-align: center;
+  font-size: 12px;
+}
+
+@media(max-width: 700px) {
+  nav {
+    padding: 18px 5%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  nav ul {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  nav ul a {
+    font-size: 11px;
+  }
+
+  section {
+    padding: 65px 7%;
+  }
+
+  .hero {
+    padding: 80px 7%;
+    min-height: 75vh;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <nav class="container" aria-label="Main navigation">
-      <a class="brand" href="#home">Mifta <span>Hatul Jannat</span></a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#interests">Interests</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">Aspiring Pharmacist</div>
-          <h1>Mifta Hatul<br><span>Jannat</span></h1>
-          <p class="hero-copy">
-            Bachelor of Pharmacy (B.Pharm) student at Manarat International University,
-            building a strong academic foundation in pharmaceutical sciences and a deeper
-            understanding of medicines and healthcare.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#about">Explore my profile</a>
-            <a class="btn btn-secondary" href="#contact">Get in touch</a>
-          </div>
-        </div>
-        <div class="hero-art" aria-label="Decorative pharmaceutical molecule illustration">
-          <svg class="molecule" viewBox="0 0 200 200" fill="none" aria-hidden="true">
-            <g stroke="#1e6860" stroke-width="3" stroke-linecap="round">
-              <path d="M100 38 L145 64 L145 116 L100 142 L55 116 L55 64 Z"/>
-              <path d="M100 38 L100 12 M145 64 L174 48 M145 116 L174 132 M100 142 L100 174 M55 116 L26 132 M55 64 L26 48"/>
-              <path d="M100 38 L100 142 M55 64 L145 116 M145 64 L55 116" opacity=".35"/>
-            </g>
-            <g fill="#c99a4a" stroke="#fbfaf6" stroke-width="4">
-              <circle cx="100" cy="38" r="9"/><circle cx="145" cy="64" r="9"/>
-              <circle cx="145" cy="116" r="9"/><circle cx="100" cy="142" r="9"/>
-              <circle cx="55" cy="116" r="9"/><circle cx="55" cy="64" r="9"/>
-              <circle cx="100" cy="12" r="7"/><circle cx="174" cy="48" r="7"/>
-              <circle cx="174" cy="132" r="7"/><circle cx="100" cy="174" r="7"/>
-              <circle cx="26" cy="132" r="7"/><circle cx="26" cy="48" r="7"/>
-            </g>
-            <circle cx="100" cy="90" r="17" fill="#1e6860"/>
-            <path d="M91 90h18M100 81v18" stroke="white" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-          <div class="art-caption">Curiosity • Learning • Healthcare</div>
-        </div>
-      </div>
-    </section>
+<nav>
+  <div class="logo">MJ.</div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#interests">Interests</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <div class="kicker">01 / About me</div>
-          <h2>Learning today. Contributing tomorrow.</h2>
-          <p class="section-intro">An introduction to my academic journey and motivation.</p>
-        </div>
-        <div class="about-grid">
-          <div class="panel">
-            <h3>My background</h3>
-            <p>
-              I am a second-year Bachelor of Pharmacy student at Manarat International
-              University. I chose Pharmacy because I am interested in medicines, how they
-              work, and their role in healthcare. I am currently developing my knowledge
-              of pharmaceutical sciences through university study and independent learning.
-            </p>
-          </div>
-          <div class="panel highlight">
-            <div class="kicker">My direction</div>
-            <h3>Building a foundation in pharmacy</h3>
-            <p>
-              I aim to keep strengthening my scientific understanding, practical abilities,
-              communication, and awareness of the responsibilities involved in healthcare.
-              I value curiosity, continuous learning, and evidence-informed thinking.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- HERO SECTION -->
+<header class="hero" id="home">
+  <div class="hero-content">
+    <div class="tag">Aspiring Pharmacist | B.Pharm Student</div>
+    <h1>Hello, I'm <span>Mifta Hatul Jannat.</span></h1>
+    <p>
+      A passionate Bachelor of Pharmacy student at
+      Manarat International University, exploring the
+      science of medicines and the future of healthcare.
+    </p>
+    <a href="#about" class="btn">Discover My Journey →</a>
+  </div>
+</header>
 
-    <section class="education" id="education">
-      <div class="container">
-        <div class="section-heading">
-          <div class="kicker">02 / Education</div>
-          <h2>My academic journey</h2>
-          <p class="section-intro">The educational milestones that have brought me to pharmacy.</p>
-        </div>
-        <div class="timeline">
-          <article class="timeline-card">
-            <div class="year">2023</div>
-            <h3>SSC</h3>
-            <p>Shafiuddin Sarker Academy &amp; College</p>
-            <span class="status">Completed</span>
-          </article>
-          <article class="timeline-card">
-            <div class="year">2025</div>
-            <h3>HSC</h3>
-            <p>Tongi City College</p>
-            <span class="status">Completed</span>
-          </article>
-          <article class="timeline-card">
-            <div class="year">Currently studying</div>
-            <h3>Bachelor of Pharmacy (B.Pharm)</h3>
-            <p>Manarat International University · 2nd Year</p>
-            <span class="status">In progress</span>
-          </article>
-        </div>
-      </div>
-    </section>
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
+  <div class="section-label">01 / Introduction</div>
+  <h2 class="section-title">About Me</h2>
+  <p class="about-text">
+    I am a second-year Bachelor of Pharmacy student at
+    Manarat International University. I chose Pharmacy
+    because of my interest in medicines and how they work.
+    I am developing my academic foundation in pharmaceutical
+    sciences and expanding my understanding of medicines
+    and healthcare.
+  </p>
+</section>
 
-    <section id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <div class="kicker">03 / Skills</div>
-          <h2>Skills I am developing</h2>
-          <p class="section-intro">Core abilities that support my academic work and growth as a pharmacy student.</p>
-        </div>
-        <div class="skills-grid">
-          <div class="skill-card"><div class="skill-icon">↗</div>Communication</div>
-          <div class="skill-card"><div class="skill-icon">◎</div>Teamwork</div>
-          <div class="skill-card"><div class="skill-icon">◷</div>Time management</div>
-          <div class="skill-card"><div class="skill-icon">⚗</div>Basic laboratory techniques</div>
-        </div>
-      </div>
-    </section>
+<!-- EDUCATION SECTION -->
+<section class="education" id="education">
+  <div class="section-label">02 / Academic Background</div>
+  <h2 class="section-title">Education</h2>
 
-    <section class="interests" id="interests">
-      <div class="container">
-        <div class="section-heading">
-          <div class="kicker">04 / Academic activities &amp; interests</div>
-          <h2>Curiosity beyond the classroom</h2>
-          <p class="section-intro">I enjoy learning from different subjects, formats, and perspectives.</p>
-        </div>
-        <div class="interest-grid">
-          <article class="interest-card">
-            <div class="interest-icon">📚</div>
-            <h3>Reading &amp; learning</h3>
-            <p>Exploring new ideas, gaining knowledge, and developing a habit of continuous learning.</p>
-          </article>
-          <article class="interest-card">
-            <div class="interest-icon">🧪</div>
-            <h3>Pharmaceutical sciences</h3>
-            <p>Attending lectures and academic discussions to expand my understanding of pharmacy.</p>
-          </article>
-          <article class="interest-card">
-            <div class="interest-icon">🔎</div>
-            <h3>Case-file documentaries</h3>
-            <p>Learning about real-life cases, evidence, and investigative stories.</p>
-          </article>
-          <article class="interest-card">
-            <div class="interest-icon">🌿</div>
-            <h3>Nature &amp; wildlife</h3>
-            <p>Discovering more about the natural world, wildlife, and the environment.</p>
-          </article>
-          <article class="interest-card">
-            <div class="interest-icon">🎧</div>
-            <h3>Podcasts</h3>
-            <p>Listening to informative discussions and considering different perspectives.</p>
-          </article>
-          <article class="interest-card">
-            <div class="interest-icon">✨</div>
-            <h3>Learning new skills</h3>
-            <p>Exploring new abilities and developing personally through ongoing practice.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="contact-wrap">
-          <div>
-            <div class="kicker">05 / Contact</div>
-            <h2>Let's connect.</h2>
-            <p>For academic connections, learning opportunities, or professional networking.</p>
-            <a class="contact-email" href="mailto:callmift@gmail.com">callmift@gmail.com</a>
-          </div>
-          <a class="btn btn-secondary" href="mailto:callmift@gmail.com">Send an email ↗</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <span>© <span id="year"></span> Mifta Hatul Jannat</span>
-      <span>B.Pharm Student · Manarat International University</span>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Bachelor of Pharmacy (B.Pharm)</h3>
+      <p>Manarat International University</p>
+      <p>Currently Studying | 2nd Year</p>
     </div>
-  </footer>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+
+    <div class="timeline-item">
+      <h3>Higher Secondary Certificate (HSC)</h3>
+      <p>Tongi City College</p>
+      <p>2025</p>
+    </div>
+
+    <div class="timeline-item">
+      <h3>Secondary School Certificate (SSC)</h3>
+      <p>Shafiuddin Sarker Academy & College</p>
+      <p>2023</p>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS SECTION -->
+<section class="skills" id="skills">
+  <div class="section-label">03 / What I Bring</div>
+  <h2 class="section-title">My Skills</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Communication</h3>
+      <p>Expressing ideas and sharing information effectively.</p>
+    </div>
+
+    <div class="card">
+      <h3>Teamwork</h3>
+      <p>Collaborating and learning through group activities.</p>
+    </div>
+
+    <div class="card">
+      <h3>Time Management</h3>
+      <p>Organizing academic responsibilities and priorities.</p>
+    </div>
+
+    <div class="card">
+      <h3>Basic Laboratory Techniques</h3>
+      <p>Developing practical laboratory knowledge and skills.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMIC ACTIVITIES -->
+<section class="academic" id="activities">
+  <div class="section-label">04 / Beyond the Classroom</div>
+  <h2 class="section-title">Academic Activities</h2>
+
+  <div class="activities">
+    <div class="activity">
+      <p>Attending lectures and academic discussions on pharmaceutical sciences.</p>
+    </div>
+
+    <div class="activity">
+      <p>Learning basic laboratory techniques and practical procedures.</p>
+    </div>
+
+    <div class="activity">
+      <p>Developing knowledge of medicines, their uses, and mechanisms of action.</p>
+    </div>
+
+    <div class="activity">
+      <p>Participating in academic workshops and learning activities.</p>
+    </div>
+
+    <div class="activity">
+      <p>Participating in academic seminars.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS SECTION -->
+<section class="interests" id="interests">
+  <div class="section-label">05 / Beyond Pharmacy</div>
+  <h2 class="section-title">Personal Interests & Learning</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Reading</h3>
+      <p>Exploring new ideas and gaining knowledge through reading.</p>
+    </div>
+
+    <div class="card">
+      <h3>Case-file Documentaries</h3>
+      <p>Understanding real-life cases, evidence, and investigative stories.</p>
+    </div>
+
+    <div class="card">
+      <h3>Nature & Wildlife</h3>
+      <p>Learning about nature, wildlife, and the environment.</p>
+    </div>
+
+    <div class="card">
+      <h3>Podcasts</h3>
+      <p>Discovering new perspectives through informative discussions.</p>
+    </div>
+
+    <div class="card">
+      <h3>Learning New Skills</h3>
+      <p>Developing personal abilities through continuous learning.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact" id="contact">
+  <div class="section-label">06 / Get In Touch</div>
+  <h2 class="section-title">Let's Connect</h2>
+
+  <p>Thank you for visiting my portfolio.</p>
+  <p>Feel free to connect with me through email.</p>
+
+  <a class="email"
+     href="mailto:callmiftah@gmail.com">
+     callmiftah@gmail.com
+  </a>
+</section>
+
+<footer>
+  <p>© 2026 Mifta Hatul Jannat | Aspiring Pharmacist</p>
+  <p>Designed with curiosity, passion & purpose.</p>
+</footer>
+
 </body>
 </html>
